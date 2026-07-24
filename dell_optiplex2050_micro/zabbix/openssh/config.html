@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../../../../style.css">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../../../rss.xml">
+<title>config</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div id="/etc/ssh/ssh_config"><h3 id="/etc/ssh/ssh_config" class="header"><a href="#/etc/ssh/ssh_config">/etc/ssh/ssh_config</a></h3></div>
+<p>
+2026.07.19
+</p>
+	
+<pre  conf>
+		Include /etc/ssh/sshd_config.d/*.conf
+		
+		Port 2020
+</pre>
+	
+<pre  conf>
+		# Authentication:
+
+		#LoginGraceTime 2m
+		PermitRootLogin no
+		#StrictModes yes
+		MaxAuthTries 4
+		MaxSessions 1
+		
+		PubkeyAuthentication yes
+		
+		# Expect .ssh/authorized_keys2 to be disregarded by default in future.
+		#AuthorizedKeysFile	.ssh/authorized_keys .ssh/authorized_keys2
+</pre>
+	
+<pre  conf>
+		# To disable tunneled clear text passwords, change to "no" here!
+		PasswordAuthentication no
+		#PermitEmptyPasswords no
+</pre>
+	
+<pre  conf>
+		# Feel free to re-enable these if your use case requires them.
+		AllowTcpForwarding no
+		GatewayPorts no
+		X11Forwarding no
+</pre>
+	
+<pre  conf>
+		PrintMotd no
+</pre>
+	
+<pre  conf>
+		# override default of no subsystems
+		Subsystem	sftp	/usr/lib/openssh/sftp-server
+</pre>
+
+</body>
+</html>

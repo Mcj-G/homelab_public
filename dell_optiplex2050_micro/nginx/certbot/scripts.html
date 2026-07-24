@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../../../../style.css">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../../../rss.xml">
+<title>scripts</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div id="DuckDNS / Certbot - config"><h1 id="DuckDNS / Certbot - config" class="header"><a href="#DuckDNS / Certbot - config">DuckDNS / Certbot - config</a></h1></div>
+
+<div id="DuckDNS / Certbot - config-/root/.certbot"><h3 id="/root/.certbot" class="header"><a href="#DuckDNS / Certbot - config-/root/.certbot">/root/.certbot</a></h3></div>
+<ul>
+<li>
+/.token
+<pre>
+			42d239bd-099b-47d9-9f54-5bedcb802dd5
+</pre>
+
+</ul>
+	
+<ul>
+<li>
+/challenge
+<pre  bash>
+			#!/usr/bin/env bash
+
+			# get duckdns token
+			TOKEN=$(cat ./.token)
+			
+			# remove duckdns.org and subdomains from domain
+			CERTBOT_DOMAIN=${CERTBOT_DOMAIN%%.duckdns.org}
+			CERTBOT_DOMAIN=${CERTBOT_DOMAIN##*.}
+			
+			# set up TXT record
+			RESULT=$(curl -k "https://www.duckdns.org/update?domains=$CERTBOT_DOMAIN&amp;token=$TOKEN&amp;txt=$CERTBOT_VALIDATION")
+			
+			# wait to be sure TXT is propagated
+			sleep 5
+</pre>
+
+</ul>
+		
+<ul>
+<li>
+/cleanup
+<pre  bash>
+			#!/usr/bin/env bash
+
+			# get duckdns token
+			TOKEN=$(cat ./.token)
+			
+			# remove duckdns.org and subdomains from domain
+			CERTBOT_DOMAIN=${CERTBOT_DOMAIN%%.duckdns.org}
+			CERTBOT_DOMAIN=${CERTBOT_DOMAIN##*.}
+			
+			# remove TXT record
+			RESULT=$(curl -k
+			"https://www.duckdns.org/update?domains=$CERTBOT_DOMAIN&amp;token=$TOKEN&amp;txt=$CERTBOT_VALIDATION&amp;clear=true")
+</pre>
+
+</ul>
+		
+<ul>
+<li>
+/get_cert
+<pre  bash>
+			#!/usr/bin/env bash
+
+			certbot certonly --manual --preferred-challenges dns \
+			  --manual-auth-hook /root/.certbot/challenge \
+			  --manual-cleanup-hook /root/.certbot/cleanup \
+			  --email mgorczyczynski@gmail.com \
+			  --domain mcjg.duckdns.org \
+			  --domain *.mcjg.duckdns.org
+</pre>
+
+</ul>
+
+</body>
+</html>
