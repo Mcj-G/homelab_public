@@ -38,6 +38,78 @@ WebGUI: keepassDB/Homelab
 
 </ul>
 </ul>
+<div id="Proxmox - Config-LXC / VM"><h3 id="LXC / VM" class="header"><a href="#Proxmox - Config-LXC / VM">LXC / VM</a></h3></div>
+<ul>
+<li>
+100 (pi-hole)
+
+<ul>
+<li>
+Typ: LXC
+
+<li>
+Memory: 512 MB
+
+<li>
+Swap: 512 MB
+
+<li>
+Cores: 1
+
+<li>
+Root disk: local-lvm:vm-100-disk-0,size=8G
+
+<li>
+<a href="../pi_hole/configuration_info.html">Config</a>
+
+</ul>
+<li>
+101 (nginx)
+
+<ul>
+<li>
+Typ: LXC
+
+<li>
+Memory: 512 MB
+
+<li>
+Swap: 512 MB
+
+<li>
+Cores: 1
+
+<li>
+Root disk: local-lvm:vm-101-disk-0,size=6G
+
+<li>
+<a href="../nginx/configuration_info.html">Config</a>
+
+</ul>
+<li>
+102 (zabbix-debian)
+
+<ul>
+<li>
+Typ: LXC
+
+<li>
+Memory: 2 GB
+
+<li>
+Swap: 2 GB
+
+<li>
+Cores: 2
+
+<li>
+Root disk: local-lvm:vm-102-disk-0,size=15G
+
+<li>
+<a href="../zabbix/configuration_info.html">Config</a>
+
+</ul>
+</ul>
 
 </body>
 </html>
