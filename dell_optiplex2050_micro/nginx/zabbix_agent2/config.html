@@ -12,9 +12,46 @@
 <div id="Zabbix Agent2"><h2 id="Zabbix Agent2" class="header"><a href="#Zabbix Agent2">Zabbix Agent2</a></h2></div>
 
 <div id="Zabbix Agent2-/etc/zabbix/zabbix_agent2.conf"><h3 id="/etc/zabbix/zabbix_agent2.conf" class="header"><a href="#Zabbix Agent2-/etc/zabbix/zabbix_agent2.conf">/etc/zabbix/zabbix_agent2.conf</a></h3></div>
-<p>
+<ul>
+<li>
+2026.08.29
+
+<ul>
+<li>
+zabbix_agent2.conf -&gt; zabbix_agent2.conf.backup
+
+<li>
+wyczyszczenie wszystkich komentarzy
+<pre  conf>
+		PidFile=/run/zabbix/zabbix_agent2.pid
+
+		LogFile=/var/log/zabbix/zabbix_agent2.log
+		
+		LogFileSize=0
+		
+		Server=192.168.0.160
+		
+		ListenPort=10050
+		
+		ServerActive=192.168.0.160
+		
+		Hostname=Zabbix server
+		
+		PluginSocket=/run/zabbix/agent.plugin.sock
+		
+		ControlSocket=/run/zabbix/agent.sock
+		
+		Include=/etc/zabbix/zabbix_agent2.d/plugins.d/*.conf
+		
+		Include=/etc/zabbix/zabbix_agent2.d/*.conf
+</pre>
+
+</ul>
+</ul>
+	
+<ul>
+<li>
 2026.07.08 
-</p>
 <pre  conf>
 		### Option: PidFile
 		#       Name of PID file.
@@ -25,6 +62,8 @@
 		
 		PidFile=/run/zabbix/zabbix_agent2.pid
 </pre>
+
+</ul>
 	
 <pre  conf>
 		### Option: LogFile

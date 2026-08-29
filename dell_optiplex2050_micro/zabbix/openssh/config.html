@@ -9,10 +9,44 @@
 </head>
 <body>
 
-<div id="/etc/ssh/ssh_config"><h3 id="/etc/ssh/ssh_config" class="header"><a href="#/etc/ssh/ssh_config">/etc/ssh/ssh_config</a></h3></div>
-<p>
+<div id="/etc/ssh/sshd_config"><h3 id="/etc/ssh/sshd_config" class="header"><a href="#/etc/ssh/sshd_config">/etc/ssh/sshd_config</a></h3></div>
+<ul>
+<li>
+2026.08.29
+
+<ul>
+<li>
+sshd_config -&gt; sshd_config.backup
+
+<li>
+wyczyszczenie wszystkich komentarzy
+<pre  conf>
+		Include /etc/ssh/sshd_config.d/*.conf
+
+		Port 2020
+		
+		PermitRootLogin no
+		MaxAuthTries 4
+		MaxSessions 1
+		
+		PubkeyAuthentication yes
+		
+		PasswordAuthentication no
+		
+		AllowAgentForwarding no
+		AllowTcpForwarding no
+		GatewayPorts no
+		X11Forwarding no
+		PrintMotd no
+		
+		Subsystem	sftp	/usr/lib/openssh/sftp-server
+</pre>
+
+</ul>
+<li>
 2026.07.19
-</p>
+
+</ul>
 	
 <pre  conf>
 		Include /etc/ssh/sshd_config.d/*.conf

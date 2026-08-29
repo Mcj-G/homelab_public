@@ -10,6 +10,39 @@
 <body>
 
 <div id="/etc/zabbix/zabbix_agent2.conf"><h3 id="/etc/zabbix/zabbix_agent2.conf" class="header"><a href="#/etc/zabbix/zabbix_agent2.conf">/etc/zabbix/zabbix_agent2.conf</a></h3></div>
+<ul>
+<li>
+2026.08.29
+
+<ul>
+<li>
+zabbix_agent2.conf -&gt; zabbix_agent2.conf.backup
+
+<li>
+wyczyszczenie wszystkich komentarzy
+<pre  conf>
+		LogFile=/var/log/zabbix/zabbix_agent2.log
+
+		Server=192.168.0.160
+		
+		ListenPort=10050
+		
+		ListenIP=0.0.0.0
+		
+		ServerActive=192.168.0.160
+		
+		Hostname=Zabbix server
+		
+		PluginSocket=/run/zabbix/agent.plugin.sock
+		
+		ControlSocket=/run/zabbix/zabbix_agent2.sock
+		
+		Include=./zabbix_agent2.d/plugins.d/*.conf
+</pre>
+
+</ul>
+</ul>
+	
 <p>
 2026.07.06 
 </p>
